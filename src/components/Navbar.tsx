@@ -1,11 +1,23 @@
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
 import React, { useEffect } from 'react';
+import { Menu, Transition } from '@headlessui/react';
 
-let link_list = [
+
+let item_list = [
   {
     "name": "Profil",
-    "link": "/profil"
+    "link": "/profil",
+    sublist: [
+      {
+        "name": "Desa Boho",
+        "link": "/profil/desa-boho"
+      },
+      {
+        "name": "Desa Aek Sipitudai",
+        "link": "/profil/desa-aek-sipitudai"
+      },
+    ]
   },
   {
     "name": "Ensiklopedia",
@@ -13,12 +25,18 @@ let link_list = [
   },
   {
     "name": "Peta",
-    "link": "/peta"
+    "link": "/peta",
+    sublist: [
+      {
+        "name": "Master Plan Desa",
+        "link": "/peta/master-plan-desa"
+      },
+      {
+        "name": "Kawasan Rawan Bencana",
+        "link": "/peta/rawan-bencana"
+      }]
   },
-  {
-    "name": "KKN-PPM",
-    "link": "/peta"
-  },
+
 ]
 
 export default function Navbar() {
@@ -26,7 +44,7 @@ export default function Navbar() {
   const [isSticky, setIsSticky] = React.useState(true);
   const [isOpened, setIsOpened] = React.useState(false);
 
-  
+
   const onScroll = () => {
     if (window.scrollY > 30) {
       setIsSticky(true);
@@ -50,23 +68,56 @@ export default function Navbar() {
     <div className={`fixed top-0  inline-block  w-full font-made-sunflower h-14`}>
       <nav className={` w-full transition z-10 text-white  ${isSticky ? " bg-smm-red shadow-2xl " : "bg-transparent"} `}>
         <div className=" mx-auto w-[90%] h-full flex justify-between items-center">
-          <Link to="/" className={` transition-all ${isSticky?"":"invisible"}`}>
-          <div className=" transition-all inline-flex align-middle items-center hover:scale-110">
-            
+          <Link to="/" className={` transition-all ${isSticky ? "" : "invisible"}`}>
+            <div className=" transition-all inline-flex align-middle items-center hover:scale-110">
+
               <img alt='' src={Logo} className='h-10 transition-all'></img>
-            
-            <h1 className=" mx-4 text-base lg:text-xl  font-extrabold transition-colors text-white">Sianjur Mula-Mula</h1>
-          </div>
+
+              <h1 className=" mx-4 text-base lg:text-xl  font-extrabold transition-colors text-white">Sianjur Mula-Mula</h1>
+            </div>
           </Link>
 
           <ul className='hidden md:inline-flex justify-around list-none items-center h-full'>           {
-              link_list.map((link) => {
-                return (
-                  <Link to={link.link} className={`px-4 transition-colors h-14 flex text-white ${isSticky?"hover:bg-black hover:text-white":" hover:text-black"}`}><li className='my-auto'>{link.name}</li></Link>
-                )
-              })
-            }
-           
+            item_list.map((item) => {
+              return (
+                item.sublist ?
+                <li>
+                  <Menu>
+                    <Menu.Button as='a' className={` cursor-pointer px-4 transition-colors h-14 flex text-white ${isSticky ? "hover:bg-black hover:text-white" : " hover:text-black"}`}><li className='my-auto'>{item.name}</li></Menu.Button>
+                    <Transition
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                      className='relative'
+                    >
+                    <Menu.Items as="ul" className=' bg-smm-black absolute p-2 z-10 shadow-md'>
+                      {item.sublist.map((subitem) => {
+                        return (
+                          
+                            <Menu.Item as="li">
+
+                                <Link to={subitem.link}
+                                  className={` text-white flex rounded-md text-center hover:text-smm-red w-full p-2 text-xs`}>
+                                  {subitem.name}
+                                </Link>
+     
+                            </Menu.Item>
+                          
+                      )})}</Menu.Items>
+                </Transition>
+                  </Menu></li>
+
+                  :
+                  <Link to={item.link} className={` cursor-pointer px-4 transition-colors h-14 flex text-white ${isSticky ? "hover:bg-black hover:text-white" : " hover:text-black"}`}><li className='my-auto'>{item.name}</li></Link>
+              )
+            })
+          }
+
+
+
           </ul>
           <div className='md:hidden hover:scale-110 transition-all h-14 flex align-middle items-center' onClick={() => setIsOpened(!isOpened)}>
             <svg
@@ -83,11 +134,11 @@ export default function Navbar() {
       </nav >
       {isOpened && (<div className=' md:hidden '>
         <ul className='transition-all bg-smm-red shadow-md fixed right-0 list-none text-white z-10'>
-        {link_list.map((link) => {
-          return (
-            <li className=' p-4 px-8'><Link to={link.link} className='transition-colors text-white hover:bg-black'>{link.name}</Link></li>
-          )
-        })}
+          {item_list.map((item) => {
+            return (
+              <li className=' p-4 px-8'><Link to={item.link} className='transition-colors text-white hover:bg-black'>{item.name}</Link></li>
+            )
+          })}
         </ul>
       </div>)
       }
