@@ -13,6 +13,7 @@ export default {
       },
       fontFamily: {
         'made-sunflower': ['Made Sunflower', 'sans-serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
   },

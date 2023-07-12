@@ -68,12 +68,12 @@ export default function Navbar() {
     <div className={`fixed top-0  inline-block  w-full font-made-sunflower h-14`}>
       <nav className={` w-full transition z-10 text-white  ${isSticky ? " bg-smm-red shadow-2xl " : "bg-transparent"} `}>
         <div className=" mx-auto w-[90%] h-full flex justify-between items-center">
-          <Link to="/" className={` transition-all ${isSticky ? "" : "invisible"}`}>
+          <Link to="/" className={` transition-all `}>
             <div className=" transition-all inline-flex align-middle items-center hover:scale-110">
 
               <img alt='' src={Logo} className='h-10 transition-all'></img>
 
-              <h1 className=" mx-4 text-base lg:text-xl  font-extrabold transition-colors text-white">Sianjur Mula-Mula</h1>
+              <h1 className={` mx-4 text-base lg:text-xl font-extrabold transition-colors text-white`}>Sianjur Mula-Mula</h1>
             </div>
           </Link>
 
