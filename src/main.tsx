@@ -5,6 +5,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import './index.css'
+import NotFound from './pages/404.tsx';
 
 const router = createBrowserRouter([
   {
@@ -17,8 +19,6 @@ const router = createBrowserRouter([
   }
 ]);
 
-import './index.css'
-import NotFound from './pages/404.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
