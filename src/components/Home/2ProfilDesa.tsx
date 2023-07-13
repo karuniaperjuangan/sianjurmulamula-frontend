@@ -10,7 +10,7 @@ export default function ProfilBeranda(){
 
     const onResize = () => {
         //if width > 640px
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 640) {
           //change image to large
           document.getElementById('profil-sipitudai')?.setAttribute('src', ProfilSipitudaiLarge)
           document.getElementById('profil-boho')?.setAttribute('src', ProfilBohoLarge)
@@ -31,20 +31,20 @@ export default function ProfilBeranda(){
       
     return (
         <div className='h-screen bg-white p-[5%]'>
-        <h1 className='text-3xl sm:text-6xl smm-title mx-auto font-made-sunflower text-smm-red stroke-white hover:scale-110 transition-all'>Profil Desa Wisata</h1>
-        <div className='flex flex-col px-[20%] md:px-0 max-w-2xl items-center align-middle mx-auto justify-around h-4/5'>
+        <h1 className='h-1/6 text-3xl sm:text-6xl smm-title mx-auto font-made-sunflower text-smm-red stroke-white hover:scale-110 transition-all'>Profil Desa Wisata</h1>
+        <div className='flex flex-col px-[20%] sm:px-0 max-w-2xl items-center align-middle mx-auto justify-around h-4/5'>
           <Link to="/desaaeksipitudai">
             <img
               id='profil-sipitudai'
               src={
-                window.innerWidth > 1024 ? ProfilSipitudaiLarge : ProfilSipitudaiSmall
+                window.innerWidth > 640 ? ProfilSipitudaiLarge : ProfilSipitudaiSmall
               } className='w-full hover:scale-105 my-2 transition-all'></img>
           </Link>
           <Link to="/desaboho">
             <img
               id='profil-boho'
               src={
-                window.innerWidth > 1024 ? ProfilBohoLarge : ProfilBohoSmall
+                window.innerWidth > 640 ? ProfilBohoLarge : ProfilBohoSmall
               } className='w-full hover:scale-105 my-2 transition-all'></img>
           </Link>
         </div>
