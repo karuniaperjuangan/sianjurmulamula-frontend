@@ -29,11 +29,15 @@ let item_list = [
     sublist: [
       {
         "name": "Master Plan Desa",
-        "link": "/peta/master-plan-desa"
+        "link": "/peta?mode=master-plan-desa"
+      },
+      {
+        "name": "Kondisi Mata Air",
+        "link": "/peta?mode=kondisi-mata-air"
       },
       {
         "name": "Kawasan Rawan Bencana",
-        "link": "/peta/rawan-bencana"
+        "link": "/peta?mode=rawan-bencana"
       }]
   },
 

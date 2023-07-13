@@ -8,6 +8,7 @@ import {
 import './index.css'
 import NotFound from './pages/404.tsx';
 import Root from './pages/Root.tsx';
+import Peta from './pages/Peta.tsx';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/peta",
+        element: <Peta />,
       },
       {
         path: "/*",
