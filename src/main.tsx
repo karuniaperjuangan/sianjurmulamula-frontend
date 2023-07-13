@@ -7,16 +7,22 @@ import {
 } from "react-router-dom";
 import './index.css'
 import NotFound from './pages/404.tsx';
+import Root from './pages/Root.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Root />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/*",
+        element: <NotFound/>
+      }],
   },
-  {
-    path: "/*",
-    element: <NotFound/>
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

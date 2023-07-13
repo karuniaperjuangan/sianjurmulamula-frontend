@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 export default function NotFound() {
   return (
@@ -9,8 +7,6 @@ export default function NotFound() {
       <h1 className="text-4xl font-made-sunflower text-smm-white my-4 text-center">404 | Halaman tidak ditemukan</h1>
       <Link to="/" className="text-2xl font-made-sunflower text-smm-pink text-center">Kembali ke halaman utama</Link>
     </div>
-    <Navbar />
-    <Footer/>
     </>
   );
 }
