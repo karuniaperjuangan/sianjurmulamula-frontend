@@ -21,7 +21,7 @@ let item_list = [
   },
   {
     "name": "Ensiklopedia",
-    "link": "/webinar"
+    "link": "/artikel"
   },
   {
     "name": "Peta",
@@ -45,12 +45,12 @@ let item_list = [
 
 export default function Navbar() {
 
-  const [isSticky, setIsSticky] = React.useState(true);
+  const [isSticky, setIsSticky] = React.useState(!!document.getElementById("home"));
   const [isOpened, setIsOpened] = React.useState(false);
 
 
   const onScroll = () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 30 || !document.getElementById("home") ) {
       setIsSticky(true);
     } else {
       setIsSticky(false);
@@ -69,7 +69,7 @@ export default function Navbar() {
 
 
   return (
-    <div className={`fixed top-0  inline-block  w-full font-made-sunflower h-14`}>
+    <div className={`fixed top-0  inline-block  w-full font-made-sunflower h-14 z-50`}>
       <nav className={` w-full transition z-10 text-white  ${isSticky ? " bg-smm-red shadow-2xl " : "bg-transparent"} `}>
         <div className=" mx-auto w-[90%] h-full flex justify-between items-center">
           <Link to="/" className={` transition-all `} onClick={() => {window.scrollTo({top:0})}}>

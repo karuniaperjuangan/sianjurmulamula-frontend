@@ -5,7 +5,7 @@ export default function Peta() {
     return (
         <div className="min-h-screen w-screen bg-smm-black py-14">
             <h1 className="smm-title font-made-sunflower">Peta</h1>
-            <MapContainer center={[2.600370, 98.651588]} zoom={13} scrollWheelZoom={true} className="w-4/5 max-w-4xl aspect-video mx-auto">
+            <MapContainer center={[2.600370, 98.651588]} zoom={13} scrollWheelZoom={true} className="w-4/5 max-w-4xl aspect-video mx-auto z-10">
                 <TileLayer
                     attribution='&copy; Data diambil dari OpenStreetMap'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

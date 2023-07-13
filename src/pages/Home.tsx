@@ -8,12 +8,12 @@ import BudayaBeranda from '../components/Home/3BudayaLokal'
 function Home() {
 
   return (
-    <>
+    <div id="home">
       <Beranda/>
       <ProfilBeranda/>
       <BudayaBeranda/>
       <PetaBeranda/>
-    </>
+    </div>
   )
 }
 

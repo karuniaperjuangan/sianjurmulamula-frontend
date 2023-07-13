@@ -10,6 +10,7 @@ import NotFound from './pages/404.tsx';
 import Root from './pages/Root.tsx';
 import Peta from './pages/Peta.tsx';
 import Artikel from './pages/Artikel.tsx';
+import KatalogArtikel from './pages/KatalogArtikel.tsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/*",
         element: <NotFound/>
+      },
+      {
+        path: "/artikel",
+        element: <KatalogArtikel/>
       },
       {
         path: "/artikel/:id",
