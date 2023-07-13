@@ -73,7 +73,7 @@ export default function Navbar() {
 
               <img alt='' src={Logo} className='h-10 transition-all'></img>
 
-              <h1 className={` mx-4 text-base lg:text-xl font-extrabold transition-colors text-white`}>Sianjur Mula-Mula</h1>
+              <h1 className={` mx-4 text-base lg:text-xl font-extrabold transition-colors text-white`}>Sianjur Mulamula</h1>
             </div>
           </Link>
 

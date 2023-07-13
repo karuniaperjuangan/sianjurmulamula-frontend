@@ -6,7 +6,7 @@ import Peta3MitigasiBencana from "../../assets/Home/Peta3MitigasiBencana.png"
 export default function PetaBeranda(){
     return(
         <div className='min-h-screen bg-white p-[5%] flex flex-col'>
-        <h1 className='text-3xl sm:text-6xl h-1/5 smm-title mx-auto font-made-sunflower text-smm-red stroke-white hover:scale-110 transition-all'>Peta Sianjur Mula-Mula</h1>
+        <h1 className='text-3xl sm:text-6xl h-1/5 smm-title mx-auto font-made-sunflower text-smm-red stroke-white hover:scale-110 transition-all'>Peta Sianjur Mulamula</h1>
         <div className='flex flex-col my-auto md:grid md:grid-cols-3 px-[10%] md:px-0 max-w-4xl w-full items-center align-middle mx-auto justify-around h-full'>
           <Link to="/peta" className='h-1/4 md:h-full mx-6 hover:scale-105 my-2 transition-all'>
             <img
