@@ -9,6 +9,7 @@ import './index.css'
 import NotFound from './pages/404.tsx';
 import Root from './pages/Root.tsx';
 import Peta from './pages/Peta.tsx';
+import Artikel from './pages/Artikel.tsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
       {
         path: "/*",
         element: <NotFound/>
-      }],
+      },
+      {
+        path: "/artikel/:id",
+        element: <Artikel/>
+      }
+    ],
   },
 ]);
 
