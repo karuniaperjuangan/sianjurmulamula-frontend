@@ -3,10 +3,10 @@ import BG from '../assets/BG.jpg'
 export default function KatalogArtikel() {
     return (
       <>
-      <div className="min-h-screen w-screen flex flex-col py-14 bg-white">
+      <div className="min-h-screen w-screen flex flex-col py-24 bg-white">
       <h1 className="smm-title font-made-sunflower">Ensiklopedia</h1>
       <div className="w-4/5 max-w-4xl mx-auto">
-      <h2 className=" text-smm-pink">Budaya</h2>
+      <h2 className=" text-smm-pink text-4xl font-bold mx-4 py-6">Budaya</h2>
       <div className="md:grid md:grid-cols-4">
         {
             [1,2,3,4,5,6].map((item, index) => {

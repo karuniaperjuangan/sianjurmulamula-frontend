@@ -9,7 +9,7 @@ export default function BudayaBeranda(){
           <div className="flex flex-col justify-center items-center h-full order-2 md:order-1 m-6">
             <p className="text-white text-center md:text-xl font-montserrat">Sianjur Mula-Mula dipercaya sebagai tempat turunnya sang leluhur suku Batak, yaitu Siraja Batak.
             Oleh karena itu, berbagai adat dan budaya Batak yang unik dan beragam dapat dengan mudah dijumpai di sini. Contoh dari budaya tersebut adalah Rumah Bolon, Gorga, dan Ulos.</p>
-            <Link to="/budaya" className="text-xl md:text-2xl font-made-sunflower text-smm-pink text-center hover:scale-105 transition-all py-4">Cari tahu selengkapnya...</Link>
+            <Link to="/artikel" className="text-xl md:text-2xl font-made-sunflower text-smm-pink text-center hover:scale-105 transition-all py-4">Cari tahu selengkapnya...</Link>
           </div>
           <img className="w-1/2 mx-auto order-1 md:order-2 m-6" src={BudayaLokalImage} alt="Budaya Lokal"/>
         </div>
