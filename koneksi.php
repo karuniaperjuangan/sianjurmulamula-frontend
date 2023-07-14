@@ -1,1 +1,1 @@
-//wuf u
+//aishiteru || sarangheyo
