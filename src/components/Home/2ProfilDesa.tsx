@@ -10,7 +10,7 @@ export default function ProfilBeranda(){
 
     const onResize = () => {
         //if width > 640px
-        if (window.innerWidth > 640) {
+        if (window.innerWidth > 630) {
           //change image to large
           document.getElementById('profil-sipitudai')?.setAttribute('src', ProfilSipitudaiLarge)
           document.getElementById('profil-boho')?.setAttribute('src', ProfilBohoLarge)
@@ -37,14 +37,14 @@ export default function ProfilBeranda(){
             <img
               id='profil-sipitudai'
               src={
-                window.innerWidth > 640 ? ProfilSipitudaiLarge : ProfilSipitudaiSmall
+                window.innerWidth > 630 ? ProfilSipitudaiLarge : ProfilSipitudaiSmall
               } className='w-full hover:scale-105 my-2 transition-all'></img>
           </Link>
           <Link to="/desaboho">
             <img
               id='profil-boho'
               src={
-                window.innerWidth > 640 ? ProfilBohoLarge : ProfilBohoSmall
+                window.innerWidth > 630 ? ProfilBohoLarge : ProfilBohoSmall
               } className='w-full hover:scale-105 my-2 transition-all'></img>
           </Link>
         </div>
