@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import BG from '../assets/BG.jpg'
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ArtikelKatalogModel } from "../models/models";
 
 const wp_url = "https://sianjur-mulamula.com/wordpress/graphql"
 const query = `query getPostsBudaya {
@@ -24,7 +24,7 @@ const query = `query getPostsBudaya {
 
 export default function KatalogArtikel() {
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState<ArtikelKatalogModel[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function KatalogArtikel() {
       <h2 className=" text-smm-pink text-4xl font-bold mx-4 py-6">Budaya</h2>
       <div className="md:grid md:grid-cols-4">
         {
-           posts.length >0? posts.map((item, index) => {
+           posts.length >0 || loading? posts.map((item, _) => {
                 return(
                     <Link to={`/artikel/${item.node.databaseId}`} className="text-2x mx-4 my-4 font-made-sunflower text-smm-pink text-center">
                         <img src={item.node.featuredImage.node.link} className="aspect-square object-cover rounded-md w-full transition-all hover:scale-105"/>

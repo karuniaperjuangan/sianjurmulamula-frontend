@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { placeholderWordpressContent } from "../components/placeholder_html";
 import sanitizeHtml from "sanitize-html";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ArtikelBacaModel } from "../models/models";
 
 export default function Artikel() {
     const { id } = useParams();
@@ -16,7 +16,7 @@ export default function Artikel() {
         }
       }`
 
-      const [post, setPost] = useState(null)
+      const [post, setPost] = useState<ArtikelBacaModel>()
   
       useEffect(() => {
         async function getPosts() {
