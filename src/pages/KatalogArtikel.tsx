@@ -42,15 +42,15 @@ export default function KatalogArtikel() {
       <>
       <div className="min-h-screen w-screen flex flex-col py-24 bg-white">
       <h1 className="smm-title font-made-sunflower">Ensiklopedia</h1>
-      <div className="w-full p-14 md:p-[10%] mx-auto">
+      <div className="w-full px-6 md:px-[10%] mx-auto">
       <h2 className=" text-smm-pink text-4xl font-bold mx-4 py-6">Budaya</h2>
       <div className="md:grid md:grid-cols-4">
         {
            posts.length >0 || loading? posts.map((item, _) => {
                 return(
-                    <Link to={`/artikel/${item.node.databaseId}`} className="text-2x mx-4 my-4 font-made-sunflower text-smm-pink text-center">
-                        <img src={item.node.featuredImage.node.link} className="aspect-square object-cover rounded-md w-full transition-all hover:scale-105"/>
-                        <h2 className=" py-4 font-montserrat text-black transition-all hover:scale-105 text-2xl font-bold text-left">{item.node.title}</h2>
+                    <Link to={`/artikel/${item.node.databaseId}`} className="text-2x mx-4 my-4 font-made-sunflower transition-all text-smm-pink text-center hover:scale-105">
+                        <img src={item.node.featuredImage.node.link} className="aspect-square object-cover rounded-md w-full transition-all"/>
+                        <h2 className=" py-4 font-montserrat text-black transition-all text-2xl font-bold text-left">{item.node.title}</h2>
                     </Link>
                 )
             }) : <h1>Loading...</h1>

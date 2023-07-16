@@ -5,6 +5,8 @@ import ProfilBohoLarge from "../../assets/Home/ProfilBoho-Large.png"
 import ProfilSipitudaiSmall from "../../assets/Home/ProfilSipitudai-Small.png"
 import ProfilBohoSmall from "../../assets/Home/ProfilBoho-Small.png"
 import { useEffect } from 'react'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function ProfilBeranda(){
 
@@ -31,21 +33,30 @@ export default function ProfilBeranda(){
       
     return (
         <div className='h-screen bg-white p-[5%]'>
-        <h1 className='h-1/6 text-3xl sm:text-6xl smm-title mx-auto font-made-sunflower text-smm-red stroke-white hover:scale-110 transition-all'>Profil Desa Wisata</h1>
+        <h1 className='h-1/6 text-3xl sm:text-6xl smm-title mx-auto font-made-sunflower text-smm-red stroke-white hover:scale-110 transition-all'
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        >Profil Desa Wisata</h1>
         <div className='flex flex-col px-[20%] sm:px-0 max-w-2xl items-center align-middle mx-auto justify-around h-4/5'>
           <Link to="/desaaeksipitudai">
             <img
               id='profil-sipitudai'
               src={
                 window.innerWidth > 630 ? ProfilSipitudaiLarge : ProfilSipitudaiSmall
-              } className='w-full hover:scale-105 my-2 transition-all'></img>
+              } className='w-full hover:scale-105 my-2 transition-all'
+              data-aos="fade-right"
+              data-aos-duration="1000"
+              ></img>
           </Link>
           <Link to="/desaboho">
             <img
               id='profil-boho'
               src={
                 window.innerWidth > 630 ? ProfilBohoLarge : ProfilBohoSmall
-              } className='w-full hover:scale-105 my-2 transition-all'></img>
+              } className='w-full hover:scale-105 my-2 transition-all'
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              ></img>
           </Link>
         </div>
       </div>
