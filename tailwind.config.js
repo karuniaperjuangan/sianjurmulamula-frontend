@@ -12,7 +12,7 @@ export default {
         'smm-black': '#2B2024',
       },
       fontFamily: {
-        'made-sunflower': ['Made Sunflower', 'sans-serif'],
+        'made-sunflower': ['Made Sunflower','Georgia', 'serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
