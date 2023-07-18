@@ -11,6 +11,8 @@ import Root from './pages/Root.tsx';
 import Peta from './pages/Peta.tsx';
 import Artikel from './pages/Artikel.tsx';
 import KatalogArtikel from './pages/KatalogArtikel.tsx';
+import ProfilBoho from './pages/ProfilBoho.tsx';
+import ProfilSipitudai from './pages/ProfilSipitudai.tsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/peta",
         element: <Peta />,
+      },
+      {
+        path: "/profil-boho",
+        element: <ProfilBoho/>
+      },
+      {
+        path: "/profil-aek-sipitudai",
+        element: <ProfilSipitudai/>
       },
       {
         path: "/*",

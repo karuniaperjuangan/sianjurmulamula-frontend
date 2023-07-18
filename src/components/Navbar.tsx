@@ -11,11 +11,11 @@ let item_list = [
     sublist: [
       {
         "name": "Desa Boho",
-        "link": "/profil/desa-boho"
+        "link": "/profil-boho"
       },
       {
         "name": "Desa Aek Sipitudai",
-        "link": "/profil/desa-aek-sipitudai"
+        "link": "/profil-aek-sipitudai"
       },
     ]
   },

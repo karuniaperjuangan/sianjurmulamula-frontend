@@ -6,7 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function PetaBeranda(){
-
+    AOS.init();
+    AOS.refresh();
 
     return(
         <div className='min-h-screen bg-white p-[5%] flex flex-col'>

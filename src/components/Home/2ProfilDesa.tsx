@@ -9,6 +9,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function ProfilBeranda(){
+    AOS.init();
+    AOS.refresh();
+  
 
     const onResize = () => {
         //if width > 640px
@@ -38,7 +41,7 @@ export default function ProfilBeranda(){
         data-aos-duration="1000"
         >Profil Desa Wisata</h1>
         <div className='flex flex-col px-[20%] sm:px-0 max-w-2xl items-center align-middle mx-auto justify-around h-4/5'>
-          <Link to="/desaaeksipitudai">
+          <Link to="/profil-aek-sipitudai">
             <img
               id='profil-sipitudai'
               src={
@@ -48,7 +51,7 @@ export default function ProfilBeranda(){
               data-aos-duration="1000"
               ></img>
           </Link>
-          <Link to="/desaboho">
+          <Link to="/profil-boho">
             <img
               id='profil-boho'
               src={
