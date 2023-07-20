@@ -3,6 +3,7 @@ interface ArtikelKatalogModel {
         id: string,
         databaseId: number,
         title: string,
+        excerpt: string,
         featuredImage: {
             node: {
                 id: string,

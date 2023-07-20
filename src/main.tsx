@@ -13,6 +13,7 @@ import Artikel from './pages/Artikel.tsx';
 import KatalogArtikel from './pages/KatalogArtikel.tsx';
 import ProfilBoho from './pages/ProfilBoho.tsx';
 import ProfilSipitudai from './pages/ProfilSipitudai.tsx';
+import KatalogKKN from './pages/KatalogKKN.tsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/artikel",
         element: <KatalogArtikel/>
+      },
+      {
+        path: "/artikel-kkn",
+        element: <KatalogKKN/>
       },
       {
         path: "/artikel/:id",
