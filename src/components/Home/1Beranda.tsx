@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 export default function Beranda() {
     AOS.init();
     AOS.refresh();
+    
     return (
         <div className='h-screen relative flex justify-center'>
         <img src={BackgroundImage} className='w-full object-cover brightness-50'></img>
