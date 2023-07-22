@@ -1,49 +1,31 @@
 import Slider from "react-slick";
 import AOS from "aos";
-import KantorDesa from "../../assets/Boho/KantorDesa.jpg";
-import HKBPBoho from "../../assets/Boho/HKBPBoho.jpg";
-import HKBPPeabang from "../../assets/Boho/HKBPPeabang.jpg";
-import GerejaKatolik from "../../assets/Boho/Katolik.jpg";
-import MakamAdat from "../../assets/Boho/MakamAdat.jpg";
-import SD1Boho from "../../assets/Boho/SD1Boho.jpg";
-import SD16Boho from "../../assets/Boho/SD16Boho.jpg";
+import Pemandian from "../../assets/Sipitudai/Pemandian.jpeg";
+import HKBPSosormangka from "../../assets/Sipitudai/HKBPSosormangka.jpg";
+import PuskesmasLimbong from "../../assets/Sipitudai/PuskesmasLimbong.jpg";
+import SD14Sipitudai from "../../assets/Sipitudai/SD14Sipitudai.png";
 import { Link } from "react-router-dom";
 
 const locations = [
   {
-    name: "Kantor Desa Boho",
-    image: KantorDesa,
-    url: "https://goo.gl/maps/9r9YJG474DThcABj9",
+    name: "Pemandian Aek Sipitudai",
+    image: Pemandian,
+    url: "https://goo.gl/maps/YNnYFJWAcY8gFMkY8",
   },
   {
-    name: "Gereja HKBP Boho",
-    image: HKBPBoho,
-    url: "https://goo.gl/maps/dSS7hvqyFZiiQgze9",
+    name: "Gereja HKBP Sosormangka",
+    image: HKBPSosormangka,
+    url: "https://goo.gl/maps/Y8CkbazPBJtfYrsf7",
   },
   {
-    name: "Gereja HKBP Peabang",
-    image: HKBPPeabang,
-    url: "https://goo.gl/maps/1TPsrxsSQTLWw8RE8",
+    name: "Puskesmas Limbong",
+    image: PuskesmasLimbong,
+    url: "https://goo.gl/maps/dwzKX8ih9UVxyg388",
   },
   {
-    name: "Gereja Katolik St. Yosep Stasi Boho",
-    image: GerejaKatolik,
-    url: "https://goo.gl/maps/heuy5VGUq81SaPWz9",
-  },
-  {
-    name: "Makam Adat Boho",
-    image: MakamAdat,
-    url: "https://goo.gl/maps/sGdXguLuWwNfTC5U9",
-  },
-  {
-    name: "SD 1 Boho",
-    image: SD1Boho,
-    url: "https://goo.gl/maps/Eq3T3gNmJ7tuKkvC6",
-  },
-  {
-    name: "SD 16 Boho (Peabang)",
-    image: SD16Boho,
-    url: "https://goo.gl/maps/yTAqkb1Jo1PJQ1X3A",
+    name: "SDN 14 Aek Sipitudai",
+    image: SD14Sipitudai,
+    url: "https://goo.gl/maps/nnx51wUdjvsDGQ5p8",
   }
 ]
 const sliderSettings = {
@@ -53,7 +35,7 @@ const sliderSettings = {
     autoplay: true,
     speed: 500,
     autoplaySpeed: 1500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     pauseOnHover: false,
     initialSlide: 0,
@@ -86,7 +68,7 @@ const sliderSettings = {
     ],
   };
 
-  export default function LokasiPentingBoho(){
+  export default function LokasiPentingSipitudai(){
     AOS.init();
     AOS.refresh();
 
@@ -101,7 +83,7 @@ const sliderSettings = {
             {locations.map((item, _) => {
                 return(
                     <Link to={item.url} target="_blank" rel="noopener noreferrer" className="px-4 relative hover:scale-105 transition-all">
-              <img className="rounded-2xl cursor-pointer brightness-50 aspect-square object-cover" src={item.image} alt="rectangle"></img>
+              <img className="rounded-2xl cursor-pointer brightness-50 w-full aspect-square object-cover" src={item.image} alt="rectangle"></img>
               <p className="absolute bottom-0 text-center text-xl text-white left-0 right-0 font-made-sunflower my-6">{item.name}</p>
             </Link>
                 )
