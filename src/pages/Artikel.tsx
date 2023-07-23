@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import sanitizeHtml from "sanitize-html";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ArtikelBacaModel } from "../models/models";
+import HtmlHeader from "../components/HtmlHead";
 
 export default function Artikel() {
+  const navigate = useNavigate();
     const { id } = useParams();
 
     const wp_url = "https://sianjur-mulamula.com/wordpress/graphql"
@@ -13,6 +15,7 @@ export default function Artikel() {
           id
           title
           content
+          excerpt
         }
       }`
 
@@ -21,6 +24,7 @@ export default function Artikel() {
       useEffect(() => {
         async function getPosts() {
           const response = await axios.post(wp_url, { query })
+          if (!response.data.data.post) navigate('/404');
           setPost(response.data.data.post)
         }
         getPosts()
@@ -29,6 +33,7 @@ export default function Artikel() {
 
     return (
         <div className="min-h-screen w-screen bg-smm-black py-14">
+        <HtmlHeader title={post?.title ?? "Artikel"} description={post?.excerpt} />
         {
             post && <div>
                 <h1 className="smm-title font-made-sunflower py-4">{post.title}</h1>
@@ -45,7 +50,7 @@ export default function Artikel() {
         }} className="px-10 max-w-4xl text-justify mx-auto flex items-center flex-col" />
         </div>   
         }
-        {!post && <h1>Loading...</h1>}
+        {!post && <h1 className="mx-auto my-auto text-center">Loading...</h1>}
         </div>
     );
     }

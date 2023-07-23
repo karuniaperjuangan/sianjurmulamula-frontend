@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { ArtikelKatalogModel } from "../models/models";
 import sanitizeHtml from "sanitize-html";
+import HtmlHeader from "../components/HtmlHead";
 
 const wp_url = "https://sianjur-mulamula.com/wordpress/graphql"
 const query = `query getPostsBudaya {
@@ -42,6 +43,7 @@ export default function KatalogKKN() {
 
     return (
       <>
+      <HtmlHeader title="Kegiatan KKN-PPM UGM 2023" description="Kegiatan KKN-PPM UGM 2023 Sianjur Mula-Mula adalah kegiatan pengabdian yang dilaksanakan oleh tim KKN Universitas Gadjah Mada di Desa Boho dan Aek Sipitudai, Kecamatan Sianjur Mula-Mula pada tanggal 24 Juni-11 Agustus 2023."/>
       <div className="min-h-screen w-screen flex flex-col py-24 bg-white">
       <h1 className="smm-title font-made-sunflower text-3xl md:text-5xl pb-6">Kegiatan KKN-PPM UGM 2023 <br/> Sianjur Mula-Mula</h1>
       <div className="w-full px-6 md:px-[10%] mx-auto">

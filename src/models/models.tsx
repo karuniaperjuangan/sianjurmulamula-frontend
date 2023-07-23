@@ -16,7 +16,8 @@ interface ArtikelKatalogModel {
 interface ArtikelBacaModel{
     id: string,
     title: string,
-    content: string
+    content: string,
+    excerpt: string,
 }
 
 export {type ArtikelKatalogModel, type ArtikelBacaModel}

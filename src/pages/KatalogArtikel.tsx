@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ArtikelKatalogModel } from "../models/models";
+import HtmlHeader from "../components/HtmlHead";
 
 const wp_url = "https://sianjur-mulamula.com/wordpress/graphql"
 const query = `query getPostsBudaya {
@@ -41,6 +42,7 @@ export default function KatalogArtikel() {
 
     return (
       <>
+      <HtmlHeader title="Ensiklopedia Budaya Batak" description="Sianjur Mula-Mula dipercaya sebagai tempat turunnya sang leluhur suku Batak, yaitu Siraja Batak. Oleh karena itu, berbagai adat dan budaya Batak yang unik dan beragam dapat dengan mudah dijumpai di sini. Contoh dari budaya tersebut adalah Rumah Bolon, Gorga, dan Ulos."/>
       <div className="min-h-screen w-screen flex flex-col py-24 bg-white">
       <h1 className="smm-title font-made-sunflower">Ensiklopedia</h1>
       <div className="w-full px-6 md:px-[10%] mx-auto">
