@@ -41,22 +41,22 @@ export default function ProfilBeranda(){
         data-aos-duration="1000"
         >Profil Desa Wisata</h1>
         <div className='flex flex-col px-[20%] sm:px-0 max-w-2xl items-center align-middle mx-auto justify-around h-4/5'>
-          <Link to="/profil-aek-sipitudai">
+          <Link to="/profil-aek-sipitudai" className='hover:scale-105 transition-all'>
             <img
               id='profil-sipitudai'
               src={
                 window.innerWidth > 630 ? ProfilSipitudaiLarge : ProfilSipitudaiSmall
-              } className='w-full hover:scale-105 my-2 transition-all'
+              } className='w-full my-2 '
               data-aos="fade-right"
               data-aos-duration="1000"
               ></img>
           </Link>
-          <Link to="/profil-boho">
+          <Link to="/profil-boho" className='hover:scale-105 transition-all'>
             <img
               id='profil-boho'
               src={
                 window.innerWidth > 630 ? ProfilBohoLarge : ProfilBohoSmall
-              } className='w-full hover:scale-105 my-2 transition-all'
+              } className='w-full my-2'
               data-aos="fade-left"
               data-aos-duration="1000"
               ></img>
