@@ -9,7 +9,7 @@ export default function BerandaSipitudai() {
     return (
         <div className='h-screen relative flex justify-center'>
         <img src={BackgroundImage} className='w-full object-cover brightness-50'></img>
-        <div className='absolute top-1/3 md:top-1/2 my-auto mx-auto'>
+        <div className='absolute top-1/2 -translate-y-1/2 my-auto mx-auto'>
         <div
         data-aos="fade-down"
         data-aos-duration="1000">

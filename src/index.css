@@ -50,6 +50,11 @@ table, th, td {
   border-collapse: collapse;
 }
 
+.slick-prev:before,
+.slick-next:before {
+  color: #A80038!important;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

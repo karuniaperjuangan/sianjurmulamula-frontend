@@ -4,6 +4,7 @@ import HtmlHeader from '../components/HtmlHead'
 import BerandaBoho from '../components/ProfilBoho/1Beranda'
 import LetakBoho from '../components/ProfilBoho/2LetakBoho'
 import LokasiPentingBoho from '../components/ProfilBoho/3LokasiPenting'
+import DaftarArtikelBoho from '../components/ProfilBoho/4ArtikelBoho'
 
 export default function ProfilBoho() {
 
@@ -13,6 +14,7 @@ export default function ProfilBoho() {
       <BerandaBoho/>
       <LetakBoho/>
       <LokasiPentingBoho/>
+      <DaftarArtikelBoho/>
     </div>
   )
 }

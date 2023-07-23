@@ -4,6 +4,7 @@ import HtmlHeader from '../components/HtmlHead'
 import BerandaSipitudai from '../components/ProfilSipitudai/1Beranda'
 import LetakSipitudai from '../components/ProfilSipitudai/2LetakSipitudai'
 import LokasiPentingSipitudai from '../components/ProfilSipitudai/3LokasiPenting'
+import DaftarArtikelSipitudai from '../components/ProfilSipitudai/4ArtikelSipitudai'
 
 export default function ProfilSipitudai() {
 
@@ -13,6 +14,7 @@ export default function ProfilSipitudai() {
       <BerandaSipitudai/>
       <LetakSipitudai/>
       <LokasiPentingSipitudai/>
+      <DaftarArtikelSipitudai/>
     </div>
   )
 }

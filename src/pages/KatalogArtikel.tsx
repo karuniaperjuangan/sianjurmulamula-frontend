@@ -43,10 +43,10 @@ export default function KatalogArtikel() {
     return (
       <>
       <HtmlHeader title="Ensiklopedia Budaya Batak" description="Sianjur Mula-Mula dipercaya sebagai tempat turunnya sang leluhur suku Batak, yaitu Siraja Batak. Oleh karena itu, berbagai adat dan budaya Batak yang unik dan beragam dapat dengan mudah dijumpai di sini. Contoh dari budaya tersebut adalah Rumah Bolon, Gorga, dan Ulos."/>
-      <div className="min-h-screen w-screen flex flex-col py-24 bg-white">
-      <h1 className="smm-title font-made-sunflower">Ensiklopedia</h1>
+      <div className="min-h-screen w-screen flex flex-col bg-white">
+      <h1 className="smm-title font-made-sunflower mt-24">Ensiklopedia Budaya Batak</h1>
+      <p className=" text-black my-6 md:px-[10%] mx-auto font-montserrat">Klik salah satu artikel untuk mengetahui lebih lanjut mengenai budaya khas masyarakat Batak.</p>
       <div className="w-full px-6 md:px-[10%] mx-auto">
-      <h2 className=" text-smm-pink text-4xl font-bold mx-4 py-6">Budaya</h2>
       <div className="md:grid md:grid-cols-4">
         {
            posts.length >0 || loading? posts.map((item, _) => {
