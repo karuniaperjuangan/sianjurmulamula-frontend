@@ -45,6 +45,11 @@ text-shadow: 0px 0px 1px white, 0px 0px 1px white, 0px 0px 1px white, 0px 0px 1p
   -webkit-text-size-adjust: 100%;
 }
 
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

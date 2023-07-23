@@ -36,18 +36,19 @@ export default function Artikel() {
         <HtmlHeader title={post?.title ?? "Artikel"} description={post?.excerpt} />
         {
             post && <div>
-                <h1 className="smm-title font-made-sunflower py-4">{post.title}</h1>
+                <h1 className="smm-title font-made-sunflower py-4 px-10 max-w-4xl text-center mx-auto">{post.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content,
         {
             allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
             //allow classes
             allowedAttributes: {
                 ...sanitizeHtml.defaults.allowedAttributes,
-                'img': ['src', 'alt']
+                'img': ['src', 'alt'],
+                'td':['colspan', 'rowspan']
             
             }
         })        
-        }} className="px-10 max-w-4xl text-justify mx-auto flex items-center flex-col" />
+        }} className="px-10 max-w-4xl text-justify mx-auto flex [&>figure]:mx-auto [&>ol]:list-decimal [&>ul]:list-disc flex-col [&>*]:my-4" />
         </div>   
         }
         {!post && <h1 className="mx-auto my-auto text-center">Loading...</h1>}
