@@ -101,7 +101,7 @@ const sliderSettings = {
             {locations.map((item, _) => {
                 return(
                     <Link to={item.url} target="_blank" rel="noopener noreferrer" className="px-4 relative hover:scale-105 transition-all">
-              <img className="rounded-2xl cursor-pointer brightness-50 aspect-square object-cover" src={item.image} alt="rectangle"></img>
+              <img className="rounded-2xl w-full cursor-pointer brightness-50 aspect-square object-cover" src={item.image} alt="rectangle"></img>
               <p className="absolute bottom-0 text-center text-xl text-white left-0 right-0 font-made-sunflower my-6">{item.name}</p>
             </Link>
                 )
