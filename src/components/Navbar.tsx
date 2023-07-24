@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 
 
-let item_list = [
+const item_list = [
   {
     "name": "Profil",
     "link": "/profil",
@@ -43,11 +43,16 @@ let item_list = [
 
 ]
 
-export default function Navbar() {
+const item_list_small = item_list.map((item) => {  return item.sublist ?  item.sublist.map((subitem) => {
+  return {
+    "name": item.name + " " + subitem.name,
+    "link": subitem.link
+  }
+}) : item}).flat()
 
+export default function Navbar() {
   const [isSticky, setIsSticky] = React.useState(!!document.getElementById("home"));
   const [isOpened, setIsOpened] = React.useState(false);
-
 
   const onScroll = () => {
     if (window.scrollY > 30 || !document.getElementById("home") ) {
@@ -138,7 +143,7 @@ export default function Navbar() {
       </nav >
       {isOpened && (<div className=' md:hidden '>
         <ul className='transition-all bg-smm-red shadow-md fixed right-0 list-none text-white z-10'>
-          {item_list.map((item) => {
+          {item_list_small.map((item) => {
             return (
               <li className=' p-4 px-8'><Link to={item.link} className='transition-colors text-white hover:bg-black'>{item.name}</Link></li>
             )
