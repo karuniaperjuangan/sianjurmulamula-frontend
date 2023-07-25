@@ -4,10 +4,12 @@ import axios from "axios";
 import { ArtikelKatalogModel } from "../models/models";
 import sanitizeHtml from "sanitize-html";
 import HtmlHeader from "../components/HtmlHead";
+import PlaceholderImage from "../assets/PlaceholderImage.jpg";
+import { Pagination, Stack } from "@mui/material";
 
 const wp_url = "https://sianjur-mulamula.com/wordpress/graphql"
 const query = `query getPostsBudaya {
-  posts(where: {categoryId: 3}) {
+  posts(where: {categoryId: 7}) {
     edges {
       node {
         id
@@ -28,12 +30,17 @@ const query = `query getPostsBudaya {
 export default function KatalogKKN() {
 
     const [posts, setPosts] = useState<ArtikelKatalogModel[]>([])
+    const [showPosts, setShowPosts] = useState<ArtikelKatalogModel[]>([])
     const [loading, setLoading] = useState(true)
-
+    const [pageCount, setPageCount] = useState(1)
     useEffect(() => {
       async function getPosts() {
         const response = await axios.post(wp_url, { query })
-        setPosts(response.data.data.posts.edges)
+        let all_posts = response.data.data.posts.edges
+        //every page contain 3 post
+        setPageCount(Math.ceil(all_posts.length/3))
+        setPosts(all_posts)
+        setShowPosts(all_posts.slice(0,3))
         setLoading(false)
       }
       getPosts()
@@ -49,10 +56,12 @@ export default function KatalogKKN() {
       <div className="w-full px-6 md:px-[10%] mx-auto">
       <div className=" max-w-4xl mx-auto">
         {
-           posts.length >0 || loading? posts.map((item, _) => {
+           posts.length >0 && !loading? 
+           <>
+           {showPosts.map((item, _) => {
                 return(
                     <Link to={`/artikel/${item.node.databaseId}`} className="my-8 md:flex justify-center md:align-middle font-made-sunflower transition-all text-smm-pink text-center hover:scale-105">
-                        <img src={item.node.featuredImage.node.link} className="aspect-square object-cover rounded-md w-full mx-auto md:w-44 transition-all"/>
+                        <img src={item.node.featuredImage?.node?.link ?? PlaceholderImage} className="aspect-square object-cover rounded-md w-full mx-auto md:w-44 transition-all"/>
                         <div className="md:my-auto md:ml-6">
                           <h2 className="font-montserrat text-black transition-all text-2xl font-bold text-left">{item.node.title}</h2>
                           <div className=" text-black font-montserrat text-justify" dangerouslySetInnerHTML={{ __html: sanitizeHtml(item.node.excerpt,{allowedTags: ['p']}) }} />
@@ -60,7 +69,17 @@ export default function KatalogKKN() {
                         
                     </Link>
                 )
-            }) : <h1>Loading...</h1>
+            })}
+            <Stack alignItems={'center'}>
+            <Pagination count={pageCount} variant="outlined" shape="circular" className="mx-auto" onChange={(e,page)=>{
+              setShowPosts(posts.slice((page-1)*3,page*3))
+            }}/>
+            </Stack>
+            </>
+            : 
+            <div className="w-full">
+            <h1 className=" text-black align-middle items-center font-made-sunflower text-center my-auto">Loading...</h1>
+            </div>
         }
       </div>  
       </div>  

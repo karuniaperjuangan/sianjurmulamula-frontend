@@ -40,6 +40,10 @@ const item_list = [
         "link": "/peta?mode=rawan-bencana"
       }]
   },
+  {
+    "name": "KKN",
+    "link": "/artikel-kkn"
+  }
 
 ]
 

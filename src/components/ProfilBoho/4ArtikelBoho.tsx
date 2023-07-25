@@ -4,6 +4,7 @@ import AOS from "aos";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArtikelKatalogModel } from "../../models/models";
+import PlaceholderImage from "../../assets/PlaceholderImage.jpg";
 import axios from "axios";
 
 
@@ -73,7 +74,7 @@ const query = `query getPostsBudaya {
             {posts.map((item, _) => {
                 return(
                     <Link to={`/artikel/${item.node.databaseId}`} target="_blank" rel="noopener noreferrer" className="px-4 flex relative hover:scale-105 transition-all">
-              <img className="rounded-2xl w-full cursor-pointer brightness-50 aspect-[3] object-cover" src={item.node.featuredImage.node.link} alt="rectangle"></img>
+              <img className="rounded-2xl w-full cursor-pointer brightness-50 aspect-[3] object-cover" src={item.node.featuredImage?.node?.link ?? PlaceholderImage} alt="rectangle"></img>
               <p className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 m-auto text-center align-middle items-center text-xl md:text-3xl text-white font-made-sunflower">{item.node.title}</p>
             </Link>
                 )
