@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.png';
 import React, { useEffect } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-
+import { useLocation } from 'react-router-dom';
 
 const item_list = [
   {
@@ -55,6 +55,7 @@ const item_list_small = item_list.map((item) => {  return item.sublist ?  item.s
 }) : item}).flat()
 
 export default function Navbar() {
+  const {pathname} = useLocation()
   const [isSticky, setIsSticky] = React.useState(!!document.getElementById("home"));
   const [isOpened, setIsOpened] = React.useState(false);
 
@@ -75,7 +76,9 @@ export default function Navbar() {
     }
   });
 
-
+ useEffect(() => {
+    onScroll()
+  }, [pathname])
 
   return (
     <div className={`fixed top-0  inline-block  w-full font-made-sunflower h-14 z-50`}>
