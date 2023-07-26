@@ -71,7 +71,7 @@ export default function KatalogKKN() {
                 )
             })}
             <Stack alignItems={'center'}>
-            <Pagination count={pageCount} variant="outlined" shape="circular" className="mx-auto" onChange={(e,page)=>{
+            <Pagination count={pageCount} variant="outlined" shape="circular" className="mx-auto" onChange={(_,page)=>{
               setShowPosts(posts.slice((page-1)*3,page*3))
             }}/>
             </Stack>
