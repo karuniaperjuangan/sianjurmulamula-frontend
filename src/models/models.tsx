@@ -1,3 +1,5 @@
+import { LatLngExpression } from "leaflet"
+
 interface ArtikelKatalogModel {
     node: {
         id: string,
@@ -12,7 +14,11 @@ interface ArtikelKatalogModel {
         }
     }
 }
-
+interface DataMataAirModel {
+    "nama": string,
+        "pos": LatLngExpression,
+        "pH": number,
+}
 interface ArtikelBacaModel{
     id: string,
     title: string,
@@ -20,4 +26,4 @@ interface ArtikelBacaModel{
     excerpt: string,
 }
 
-export {type ArtikelKatalogModel, type ArtikelBacaModel}
+export {type ArtikelKatalogModel, type ArtikelBacaModel, type DataMataAirModel}
