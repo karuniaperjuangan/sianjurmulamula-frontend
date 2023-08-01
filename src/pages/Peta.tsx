@@ -3,10 +3,11 @@ import Logo from '../assets/Logo.png';
 import { useEffect, useState } from "react";
 import HtmlHeader from "../components/HtmlHead";
 import MataAirIcon from '../assets/Peta/MataAir.png';
-import { Icon } from "leaflet";
+import { Icon, divIcon } from "leaflet";
 import Pemandian from '../assets/Sipitudai/Pemandian.jpeg';
 import { DataMataAirModel } from "../models/models";
 import PotensiLongsorIcon from '../assets/Peta/PotensiLongsor.png';
+import { Tabs, Tab } from "@mui/material";
 const mataAirData:Array<DataMataAirModel> = [
     {
         "nama": "Tele",
@@ -69,6 +70,11 @@ const potensiLongsorData = [
 
 export default function Peta() {
     const [geojson, setGeojson] = useState(null);
+    const [currentTabIndex, setCurrentTabIndex] = useState(0);
+    const handleTabChange = (e: React.SyntheticEvent, tabIndex:number) => {
+        console.log(tabIndex);
+        setCurrentTabIndex(tabIndex);
+      };
     //Load geojson
     let path = "/KecamatanSMM.geojson"
     useEffect(() => {
@@ -94,9 +100,10 @@ export default function Peta() {
 }
     return (
         <div className="min-h-screen w-screen bg-smm-black py-14">
-            <HtmlHeader title="Peta" description="Halaman ini menampilkan peta dari Sianjur Mula-Mula, yang terdiri dari 2 desa yaitu Desa Boho dan Aek Sipitudai." />
+            <HtmlHeader title="Peta" description="Halaman ini menampilkan peta sistem informasi Desa Boho yang merupakan salah satu desa di Sianjur Mula-Mula." />
             <h1 className="smm-title font-made-sunflower py-6">Peta</h1>
-            <MapContainer center={[2.600370, 98.651588]} zoom={13} scrollWheelZoom={true} className="w-4/5 max-w-4xl aspect-video mx-auto z-10">
+            <p className=" text-white w-[90%] max-w-2xl py-6 text-center mx-auto"> Di bawah ini merupakan peta keadaan Sianjur Mula-Mula, khususnya Desa Boho. Klik salah satu mode untuk melihat penjelasan lebih lanjut.</p>
+            <MapContainer center={[2.600370, 98.651588]} zoom={13} scrollWheelZoom={true} className="w-full md:w-4/5 max-w-4xl aspect-square md:aspect-video mx-auto z-10">
                 <TileLayer
                     attribution='&copy; Data diambil dari OpenStreetMap'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -123,7 +130,7 @@ export default function Peta() {
                         return (
                             <Marker key={index} position={[potensiLongsor.Lat, potensiLongsor.Long]} icon={new Icon({iconUrl:PotensiLongsorIcon, iconSize:[20,20]})}>
                                 <Popup className="flex items-center">
-                                    <h1 className="text-center font-montserrat text-2xl">Potensi Longsor</h1>
+                                    <p className="text-center font-montserrat text-lg">Titik Siaga Longsor</p>
                                 </Popup>
                             </Marker>
                         )
@@ -135,6 +142,14 @@ export default function Peta() {
                 <ShowCurrentCoordinateDummy />
             </MapContainer>
             <p className="mx-auto text-center">[{[position.lat,position.lng].toString()}]</p>
+
+    <div className="mx-auto bg-white max-w-2xl">
+    <Tabs value={currentTabIndex} onChange={handleTabChange} textColor={"primary"} className="mx-auto">
+        <Tab label='Master Plan Desa' />
+        <Tab label='Keadaan Mata Air' />
+        <Tab label='Mitigasi Bencana' />
+      </Tabs>
+    </div>  
         </div>
     );
 }
