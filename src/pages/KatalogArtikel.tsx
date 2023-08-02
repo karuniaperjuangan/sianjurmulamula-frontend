@@ -48,20 +48,24 @@ export default function KatalogArtikel() {
       <h1 className="smm-title font-made-sunflower mt-24">Ensiklopedia Budaya Batak</h1>
       <p className=" text-black my-6 md:px-[10%] mx-auto font-montserrat">Klik salah satu artikel untuk mengetahui lebih lanjut mengenai budaya khas masyarakat Batak.</p>
       <div className="w-full px-6 md:px-[10%] mx-auto">
-      <div className="md:grid md:grid-cols-4">
+      
         {
-           posts.length >0 && !loading? posts.map((item, _) => {
+           posts.length >0 && !loading? 
+           <div className="md:grid md:grid-cols-4">
+           {posts.map((item, _) => {
                 return(
+                  
                     <Link to={`/artikel/${item.node.databaseId}`} className="text-2x mx-4 my-4 font-made-sunflower transition-all text-smm-pink text-center hover:scale-105">
                         <img src={item.node.featuredImage?.node?.link ?? PlaceholderImage} className="aspect-square object-cover rounded-md w-full transition-all"/>
                         <h2 className=" py-4 font-montserrat text-black transition-all text-2xl font-bold text-left">{item.node.title}</h2>
                     </Link>
-                )
-            }) : <div className="w-full">
-            <h1 className=" text-black align-middle items-center font-made-sunflower text-center my-auto">Loading...</h1>
+                )})}
+            </div> 
+ : <div className="w-full mx-auto">
+            <h1 className=" text-black align-middle items-center font-made-sunflower text-center mx-auto my-auto">Loading...</h1>
             </div>
         }
-      </div>  
+       
       </div>  
       </div>
       </>
