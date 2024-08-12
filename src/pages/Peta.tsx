@@ -3,7 +3,7 @@ import Logo from '../assets/Logo.png';
 import { useEffect, useState } from "react";
 import HtmlHeader from "../components/HtmlHead";
 import MataAirIcon from '../assets/Peta/MataAir.png';
-import { Icon, divIcon } from "leaflet";
+import { Icon } from "leaflet";
 import Pemandian from '../assets/Sipitudai/Pemandian.jpeg';
 import { DataMataAirModel } from "../models/models";
 import PotensiLongsorIcon from '../assets/Peta/PotensiLongsor.png';
@@ -74,10 +74,10 @@ const description = {
     "rawan-bencana": "Sebagai daerah yang terletak di lereng perbukitan, terdapat potensi kemunculan bencana seperti Gempa Bumi dan Longsor. Untuk itu, perlu kesiapsiagaan dari masyarakat setempat. Dalam peta di atas, disajikan informasi mengenai titik rawan bencana yang perlu diwaspadai."
 }
 export default function Peta() {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams, _] = useSearchParams()
     const [geojson, setGeojson] = useState(null);
     const [currentTabIndex, setCurrentTabIndex] = useState<"master-plan-desa"|"kondisi-mata-air"|"rawan-bencana">(["master-plan-desa","kondisi-mata-air","rawan-bencana"].includes(searchParams.get("mode")??"") ?searchParams.get("mode") as "master-plan-desa"|"kondisi-mata-air"|"rawan-bencana" :"master-plan-desa");
-    const handleTabChange = (e: React.SyntheticEvent, mode: "master-plan-desa"|"kondisi-mata-air"|"rawan-bencana") => {
+    const handleTabChange = (_: React.SyntheticEvent, mode: "master-plan-desa"|"kondisi-mata-air"|"rawan-bencana") => {
         console.log(mode);
         setCurrentTabIndex(mode);
     };
